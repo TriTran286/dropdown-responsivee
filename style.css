@@ -48,6 +48,7 @@ body{
     padding: 1rem;
 }
 header{
+    width:100%;
     display: flex;
     justify-items: center;
     gap: 3rem;
@@ -63,7 +64,7 @@ header{
 .btn-left-side{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
     gap:2rem;
 }
 .btn-active{
@@ -74,11 +75,19 @@ header{
     position: absolute;
     z-index: 999;
     flex-direction: column;
-    display: none;
+    display: block;
     border-radius: 1rem;
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.122);
     margin-top: 1rem;
     padding: 1.5rem;
+}
+
+@media screen and (max-width:800px) {
+    .btn-dropdown{
+        display:none;
+        position:unset;
+        box-shadow: none;
+    }
 }
 
 .btn-dropdown li{
@@ -113,10 +122,6 @@ header{
     color: hsl(0, 0%, 41%);
 }
 
-.btn-right-side:hover{
-    color: hsl(0, 0%, 8%);
-}
-
 .btn-right-side button{
     padding: 1rem 1.5rem;
     color: hsl(0, 0%, 41%);
@@ -128,6 +133,189 @@ header{
 .btn-right-side button:hover{
     color: hsl(0, 0%, 8%);
 }
+
+.hamburger-menu{
+    display: none;
+}
+
+@media screen and (max-width:800px) {
+    body{
+        padding:0;
+        height:100vh;
+    }
+    header{
+        padding: 2rem 30px;
+    }
+
+    .hamburger-menu{
+        display: block;
+        z-index: 1000;
+    }
+    header{
+        justify-content: space-between;
+    }
+    .sidebar{
+        display: flex;
+        background-color: hsl(0, 0%, 98%);
+        font-size: 1.2em;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width:60%;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding:2rem 2rem;
+        transition: all 0.5s ease;
+        box-shadow: -10px 2px 20px 15px rgba(0, 0, 0, 0.122);
+        color:hsl(0, 0%, 41%);
+    }
+    .btn-left-side,
+    .btn-right-side{
+      flex-direction: column;
+      width:100%;
+    }
+    .btn-dropdown{
+        display: none;
+        padding:inherit;
+        padding-left:2rem;
+    }
+
+    .btn-right-side .register-btn{
+        width:100%;
+    }
+
+    /* Main part */
+
+    main {
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 0.9fr 1.1fr; 
+        grid-template-areas: 
+            "img"
+          "content"; 
+        }
+    main .hero-img .img-desktop{
+        display:none;
+    }
+
+    .content{
+        grid-area:content;
+        text-align: center;
+    }
+
+    .content-title br{
+        display:none;
+    }
+
+    .content-title h1{
+        font-size: 2rem;
+        font-weight: bold;
+        margin:2rem 0;
+    }
+    .content p{
+        display:inline-block;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding:0 1rem;
+        color:hsl(0, 0%, 41%);
+    }
+    .content .more-btn{
+        display: inline-block;
+        padding:1rem 2rem;
+        margin:2rem 0;
+        background-color: black;
+        color:hsl(0, 0%, 98%);
+        border-radius: 15px;
+        border:1px solid black;
+    }
+    .client-bar{
+        margin-top:2rem ;
+    }
+    .client-bar > .client-img{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+}
+
+.img-desktop{
+    display:block;
+}
+ 
+.img-mobile{
+   display:none;
+}
+
+@media (max-width: 800px) and (min-width: 300px){
+    .img-desktop{
+     display:none;
+    }
+  
+    .img-mobile{
+     display:block;
+    }
+}
+ 
+/* Desktop */
+@media (min-width: 800px){
+    main {
+        display:flex;
+        justify-content: space-around;
+        gap:3rem;
+        padding:2rem 3rem 0 6rem;
+      }
+    .hero-img { 
+        width:80%;
+    }
+    main .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap:3rem;
+    }
+    .content-title h1{
+        font-size: 4rem;
+        font-weight: bold;
+        margin-top: 10rem;
+    }
+    .content p{
+        display:inline-block;
+        line-height: 1.5;
+        width:65%;
+        color:hsl(0, 0%, 41%);
+    }
+    .content .more-btn{
+        display: inline-block;
+        padding:1rem 1rem;
+        width:25%;
+        text-align: center;
+        color:hsl(0, 0%, 8%);
+        border-radius: 15px;
+        border:1px solid black;
+    }
+    .content .more-btn:hover{
+        background-color: hsl(0, 0%, 8%);
+        color:hsl(0, 0%, 98%);
+        cursor: pointer;
+    }
+    .client-bar > .client-img{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+    
+}
+    
+
+
+
+
+
+
+ 
 
 
 
