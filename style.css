@@ -145,6 +145,17 @@ header{
     display: none;
 }
 
+.bar{
+    display: block;
+    width: 30px;
+    height: 3px;
+    border: 1px solid hsl(0, 0%, 8%);
+    border-radius: 25px;
+    margin:5px auto;
+    background-color: hsl(0, 0%, 8%);
+    transition: all 0.3s ease-out;
+}
+
 @media screen and (max-width:800px) {
     body{
         padding:0;
@@ -157,6 +168,15 @@ header{
     .hamburger-menu{
         display: block;
         z-index: 1;
+    }
+    .hamburger-menu.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
     }
     header{
         justify-content: space-between;
@@ -178,6 +198,11 @@ header{
         box-shadow: -10px 2px 20px 15px rgba(0, 0, 0, 0.122);
         color:hsl(0, 0%, 41%);
     }
+    .sidebar-active{
+        display: flex;
+    }
+
+
     .btn-left-side,
     .btn-right-side{
       flex-direction: column;
@@ -296,6 +321,7 @@ header{
         display:inline-block;
         line-height: 1.5;
         width:65%;
+        font-size: 18px;
         color:hsl(0, 0%, 41%);
     }
     .content .more-btn{
