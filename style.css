@@ -11,6 +11,11 @@
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-weight: 500;
+}
+
+div{
+    display: block;
 }
 
 :root {
@@ -68,42 +73,56 @@ header{
 .btn-active{
     position: relative;   
 }
-
-.up{
-    transform: rotate(180deg);
-}
-
 .btn-dropdown{
-    display: block;
+    display: none;
     position: absolute;
     z-index: 999;
     flex-direction: column;
-    display: none;
     border-radius: 1rem;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.122);
+    box-shadow: 0px 2px 20px 13px rgba(0, 0, 0, 0.122);
     margin-top: 1rem;
     padding: 1.5rem;
 }
 
+.btn-dropdown .logo-title{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.btn-dropdown .logo-title:last-child{
+    margin-bottom: 0;
+}
+
+.btn-dropdown p{
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.btn-dropdown p:last-child{
+    margin-bottom: 0;
+}
+    
 .btn-open{
     display: block;
 }
 
+.arrow{
+    margin-bottom: 2px;
+    transition: all 0.5s cubic-bezier(0.94, 0.07, 0, 0.95);
+}
+
+.arrow-up{
+    transform: rotate(-180deg);
+}
+
 @media screen and (max-width:800px) {
     .btn-dropdown{
-        display:none;
+        display:block;
         position:unset;
         box-shadow: none;
     }
-}
-
-.btn-dropdown li{
-    margin-bottom: 1rem;
-}
-
-.btn-dropdown-left li{
-    display: flex;
-    gap: 5px;
 }
 
 .btn-dropdown li:last-child{
@@ -130,11 +149,11 @@ header{
 }
 
 .btn-right-side button{
-    padding: 1rem 1.5rem;
+    padding: 16px 24px;
     color: hsl(0, 0%, 41%);
     background-color: transparent;
     border: 1px solid hsl(0, 0%, 41%);
-    border-radius: 20px;
+    border-radius: 12px;
 }
 
 .btn-right-side button:hover{
@@ -168,6 +187,7 @@ header{
     .hamburger-menu{
         display: block;
         z-index: 1;
+        
     }
     .hamburger-menu.active .bar:nth-child(1){
         transform: translateY(8px) rotate(45deg);
@@ -182,7 +202,7 @@ header{
         justify-content: space-between;
     }
     .sidebar{
-        display: none;
+        display:none;
         background-color: hsl(0, 0%, 98%);
         font-size: 1.2em;
         position: absolute;
@@ -195,14 +215,12 @@ header{
         justify-content: space-around;
         padding:2rem 2rem;
         transition: all 0.5s ease;
-        box-shadow: -10px 2px 20px 15px rgba(0, 0, 0, 0.122);
+        box-shadow: -10px 2px 20px 1px rgba(0, 0, 0, 0.122);
         color:hsl(0, 0%, 41%);
     }
     .sidebar-active{
         display: flex;
     }
-
-
     .btn-left-side,
     .btn-right-side{
       flex-direction: column;
@@ -210,8 +228,12 @@ header{
     }
     .btn-dropdown{
         display: none;
-        padding:inherit;
-        padding-left:2rem;
+        margin: auto;
+        padding-left:1rem;
+        overflow: hidden;
+    }
+    .btn-open{
+        display: block;
     }
 
     .open-menu{
@@ -299,7 +321,7 @@ header{
     main {
         display:flex;
         justify-content: space-around;
-        gap:3rem;
+        gap:6rem;
         padding:2rem 3rem 0 6rem;
       }
     .hero-img { 
@@ -325,17 +347,22 @@ header{
         color:hsl(0, 0%, 41%);
     }
     .content .more-btn{
-        display: inline-block;
-        padding:1rem 1rem;
-        width:25%;
-        text-align: center;
-        color:hsl(0, 0%, 8%);
+        display: block;
+        padding:1rem 1.5rem;
+        margin:2rem 0;
+        background-color: black;
+        color:hsl(0, 0%, 98%);
         border-radius: 15px;
         border:1px solid black;
+        width: 150px;
+        text-align: center;
+        white-space: nowrap;
     }
+
+    
     .content .more-btn:hover{
-        background-color: hsl(0, 0%, 8%);
-        color:hsl(0, 0%, 98%);
+        background-color:  hsl(0, 0%, 98%);
+        color:hsl(0, 0%, 8%);
         cursor: pointer;
     }
     .client-bar > .client-img{
