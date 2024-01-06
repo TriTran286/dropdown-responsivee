@@ -115,6 +115,7 @@ header{
 
 .arrow-up{
     transform: rotate(-180deg);
+    transition: all 0.3s ease;
 }
 
 @media screen and (max-width:800px) {
@@ -319,13 +320,15 @@ header{
 /* Desktop */
 @media (min-width: 800px){
     main {
+        margin-top: 5rem;
         display:flex;
         justify-content: space-around;
-        gap:6rem;
+        gap:5rem;
         padding:2rem 3rem 0 6rem;
       }
-    .hero-img { 
-        width:80%;
+    .hero-img {
+        max-width: 500px; 
+        height: auto;
     }
     main .content {
         display: flex;

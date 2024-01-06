@@ -9,15 +9,21 @@ function openMenu() {
 const dropClicks = document.querySelectorAll(".dropClick");
 
 dropClicks.forEach(function(dropClick) {
-  dropClick.addEventListener('click', function() {
+   dropClick.addEventListener('click', function() {
       const btnDropDown = this.parentElement.querySelector('.btn-dropdown');
+      const arrow = this.parentElement.querySelector('.arrow');
    if (btnDropDown) {
       btnDropDown.classList.toggle('btn-open');
    } else {
-      console.log("No element with the class 'btn-dropdown' found in the parent.");
+      console.log("false");
    }
+   if (arrow) {
+      arrow.classList.toggle('arrow-up')
+   } else {
+      console.log("false");
+   }
+   });
    
-  });
 });
 
 
